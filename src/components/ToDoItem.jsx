@@ -1,13 +1,13 @@
-import checkIcon from '../assets/images/checkIcon.png'
-import xIcon from '../assets/images/xIcon.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 const ToDoItem = (props) => {
 
     return (
         <li className="todo-list__item">
-            <span><img src={checkIcon} alt="check icon" /></span>
+            <span><FontAwesomeIcon icon={faCheck} alt="check icon" className="checkIcon" /></span>
             <p>{props.text}</p>
-            <span><img src={xIcon} alt="x icon" /></span>
+            <span><FontAwesomeIcon icon={faCircleXmark} alt="x icon" className="xIcon" /></span>
         </li>
     )
 }

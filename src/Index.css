@@ -124,9 +124,15 @@ select {
     box-shadow: 0px 5px 50px 0px #20232926;
 }
 
+.todo-list__item p{
+    pointer-events:none;
+}
+
 .todo-list__item span {
     cursor: pointer;
+    font-size: 40px;
 }
+
 
 .button__add {
     margin-top: 15px;
@@ -140,7 +146,22 @@ select {
     border: none;
     border-radius: 75px;
     background: #61DAFA;
-    box-shadow: 0px 5px 25px 0px #61DAFA80;
 
     cursor: pointer;
 }
+
+/* //////////////////////////////////// */
+
+.checkIcon:hover{
+    color: #01be01;
+}
+
+.xIcon:hover{
+    color: #fe2e2e;
+}
+
+.button__add:hover{
+    box-shadow: 0px 5px 25px 0px #61DAFA80;
+}
+
+/* //////////////////////////////////// */
