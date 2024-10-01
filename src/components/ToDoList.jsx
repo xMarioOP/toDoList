@@ -1,7 +1,7 @@
 
-const ToDoList = ({children}) => {
+const ToDoList = ({ children }) => {
     console.log(children);
-    
+
     return (
         <ul className="todo-list" role="list">
             {children}
@@ -9,4 +9,4 @@ const ToDoList = ({children}) => {
     )
 }
 
-export  {ToDoList}
+export { ToDoList }
