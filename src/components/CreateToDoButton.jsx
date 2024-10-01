@@ -1,7 +1,8 @@
+import plusIcon from '../assets/images/plusIcon.png'
 
 const CreateToDoButton = () => {
     return (
-        <button>+</button>
+        <button className="button__add"><img src={plusIcon} alt="plus icon" /></button>
     )
 }
 

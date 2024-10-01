@@ -1,0 +1,146 @@
+/* :root {
+} */
+
+/* //////////////////////////////////// */
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+p,
+li,
+figcaption {
+    text-wrap: pretty;
+    max-width: 65ch;
+}
+
+/* header,
+footer,
+main,
+section,
+article {
+    container-type: inline-size;
+} */
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow: hidden;
+    background: #FAFAFA;
+    color: #1E1E1F;
+    font-family: "Montserrat", sans-serif;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* //////////////////////////////////// */
+
+.app {
+    display: grid;
+    place-items: center;
+}
+
+.header__counter {
+    font-size: 3rem;
+    text-align: center;
+    padding: 48px;
+}
+
+.search__input {
+    width: 279px;
+    height: 64px;
+    font-size: 2.4rem;
+    text-align: center;
+    border: 2px solid #1E1E1F;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 50px 0px #20232940;
+}
+
+.search__input::placeholder {
+    color: #AAAAAA;
+    opacity: 1;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todo-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 243px;
+    height: 44px;
+    padding: 10px;
+    line-height: 21.94px;
+    font-size: 3rem;
+
+    background: #FAFAFA;
+    box-shadow: 0px 5px 50px 0px #20232926;
+}
+
+.todo-list__item span {
+    cursor: pointer;
+}
+
+.button__add {
+    margin-top: 15px;
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 75px;
+    background: #61DAFA;
+    box-shadow: 0px 5px 25px 0px #61DAFA80;
+
+    cursor: pointer;
+}

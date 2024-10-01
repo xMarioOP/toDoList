@@ -4,18 +4,19 @@ import { ToDoSearch } from './components/ToDoSearch'
 import { ToDoList } from './components/ToDoList'
 import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
-import './App.css'
 
 function App() {
 
   const defaultToDos = [
     { id: 1, text: "Cut onion", completed: false },
     { id: 2, text: "Buy milk", completed: false },
-    { id: 3, text: "Go to the gym", completed: true }
+    { id: 3, text: "Go to the gym", completed: true },
+    { id: 4, text: "Take a bath", completed: false },
+    { id: 5, text: "Breakfast", completed: true }
   ]
 
   return (
-    <>
+    <div className='app'>
       <ToDoCounter completed={5} total={16} />
       <ToDoSearch />
 
@@ -30,7 +31,7 @@ function App() {
       </ToDoList>
 
       <CreateToDoButton />
-    </>
+    </div>
   )
 }
 

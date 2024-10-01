@@ -3,7 +3,7 @@ const ToDoList = ({children}) => {
     console.log(children);
     
     return (
-        <ul>
+        <ul className="todo-list" role="list">
             {children}
         </ul>
     )
