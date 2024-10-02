@@ -21,7 +21,8 @@ const ToDoItem = (props) => {
                 <FontAwesomeIcon
                     icon={faCircleXmark}
                     aria-label="x icon"
-                    // className={`x__icon x__icon--active`}
+                    className={`x__icon `}
+                    // x__icon--active
                 />
             </span>
         </li>
