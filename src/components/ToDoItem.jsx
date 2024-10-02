@@ -5,9 +5,25 @@ const ToDoItem = (props) => {
 
     return (
         <li className="todo-list__item">
-            <span><FontAwesomeIcon icon={faCheck} alt="check icon" className="checkIcon" /></span>
-            <p>{props.text}</p>
-            <span><FontAwesomeIcon icon={faCircleXmark} alt="x icon" className="xIcon" /></span>
+            <span>
+                <FontAwesomeIcon
+                    icon={faCheck}
+                    aria-label="check icon"
+                    className={`check__icon ${props.completed && "check__icon--active"}`} />
+            </span>
+
+            <p
+                className={`todoItem__text ${props.completed && "todoItem__text--complete"}`}>
+                {props.text}
+            </p>
+
+            <span>
+                <FontAwesomeIcon
+                    icon={faCircleXmark}
+                    aria-label="x icon"
+                    // className={`x__icon x__icon--active`}
+                />
+            </span>
         </li>
     )
 }

@@ -86,6 +86,12 @@ select {
     font-size: 3rem;
     text-align: center;
     padding: 48px;
+    font-weight: normal;
+}
+
+.header__counter span{
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 .search__input {
@@ -124,7 +130,7 @@ select {
     box-shadow: 0px 5px 50px 0px #20232926;
 }
 
-.todo-list__item p{
+.todoItem__text{
     pointer-events:none;
 }
 
@@ -148,20 +154,36 @@ select {
     background: #61DAFA;
 
     cursor: pointer;
+
+    transform: rotate(0);
+    transition: .3s ease;
 }
 
 /* //////////////////////////////////// */
-
-.checkIcon:hover{
+.check__icon:hover{
     color: #01be01;
 }
 
-.xIcon:hover{
+.x__icon:hover{
+    color: #fe2e2e;
+}
+
+/* //////////////////////////////////// */
+.check__icon--active{
+    color: #01be01;
+}
+
+.x__icon--active{
     color: #fe2e2e;
 }
 
 .button__add:hover{
     box-shadow: 0px 5px 25px 0px #61DAFA80;
+    transform: rotate(224deg);
+}
+
+.todoItem__text--complete{
+    text-decoration: line-through;
 }
 
 /* //////////////////////////////////// */
