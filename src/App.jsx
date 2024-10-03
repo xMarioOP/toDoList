@@ -10,7 +10,8 @@ const defaultToDos = [
   { id: 2, text: "Buy milk", completed: false },
   { id: 3, text: "Go to the gym", completed: true },
   { id: 4, text: "Take a bath", completed: false },
-  { id: 5, text: "Breakfast", completed: true }
+  { id: 5, text: "Breakfast", completed: true },
+  { id: 6, text: "Visit family", completed: true },
 ]
 
 function App() {
