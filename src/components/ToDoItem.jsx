@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 const ToDoItem = (props) => {
+    // console.log(props.onComplete);
 
     return (
         <li className="todo-list__item">
@@ -9,7 +10,9 @@ const ToDoItem = (props) => {
                 <FontAwesomeIcon
                     icon={faCheck}
                     aria-label="check icon"
-                    className={`check__icon ${props.completed && "check__icon--active"}`} />
+                    onClick={props.onComplete}
+                    className={`check__icon ${props.completed && "check__icon--active"}`}
+                />
             </span>
 
             <p
@@ -22,7 +25,8 @@ const ToDoItem = (props) => {
                     icon={faCircleXmark}
                     aria-label="x icon"
                     className={`x__icon `}
-                    // x__icon--active
+                    onClick={props.onDelete}
+                // x__icon--active
                 />
             </span>
         </li>

@@ -31,9 +31,19 @@ function App() {
 
   const searchedToDo = toDos.filter((toDo) => {
     const toDoText = toDo.text.toLowerCase()
-    const searchedToDoText  = searchValue.toLowerCase()
+    const searchedToDoText = searchValue.toLowerCase()
     return toDoText.includes(searchedToDoText)
   })
+
+  const handleCompleteToDo = (id) => {
+    const newToDos = toDos.map(toDo => toDo.id === id ? { ...toDo, completed: !toDo.completed } : toDo)
+    setToDos(newToDos)
+  }
+
+  const handleDeleteToDo = (id) => {
+    const newToDos = toDos.filter(toDo => toDo.id !== id)
+    setToDos(newToDos)
+  }
 
   return (
     <div className='app'>
@@ -53,6 +63,8 @@ function App() {
             key={toDo.id}
             text={toDo.text}
             completed={toDo.completed}
+            onComplete={() => handleCompleteToDo(toDo.id)}
+            onDelete={() => handleDeleteToDo(toDo.id)}
           />
         ))}
       </ToDoList>
