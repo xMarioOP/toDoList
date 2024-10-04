@@ -23,10 +23,10 @@ const ToDoItem = (props) => {
             <span>
                 <FontAwesomeIcon
                     icon={faCircleXmark}
-                    aria-label="x icon"
-                    className={`x__icon `}
+                    aria-label="delete icon"
+                    className={`delete__icon `}
                     onClick={props.onDelete}
-                // x__icon--active
+                // delete__icon--active
                 />
             </span>
         </li>

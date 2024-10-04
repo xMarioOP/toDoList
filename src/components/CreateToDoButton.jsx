@@ -1,17 +1,14 @@
 import plusIcon from '../assets/images/plusIcon.png'
 
-const CreateToDoButton = () => {
-
-    const handleClick = () => {
-        return (
-            <>
-                <p></p>
-            </>
-        )
-    }
-
+const CreateToDoButton = (props) => {    
     return (
-        <button onClick={handleClick} className="button__add"><img src={plusIcon} alt="plus icon" /></button>
+        <button
+            onClick={props.onChange}
+            className="button__add">
+
+            <img src={plusIcon} alt="plus icon" />
+
+        </button>
     )
 }
 

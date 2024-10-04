@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ToDoCounter } from './components/ToDoCounter'
 import { ToDoSearch } from './components/ToDoSearch'
 import { ToDoList } from './components/ToDoList'
 import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
+import { faL } from '@fortawesome/free-solid-svg-icons'
 
 const defaultToDos = [
   { id: 1, text: "Cut onion", completed: false },
@@ -14,10 +15,30 @@ const defaultToDos = [
   { id: 6, text: "Visit family", completed: true },
 ]
 
+
+
+// localStorage.removeItem("TODLIST")
+
 function App() {
+  // const localStorageToDos = localStorage.getItem("TODLIST")
+
+  // let parsedToDos
+
+  // if (!localStorageToDos) {
+  //   localStorage.setItem("TODOLIST", JSON.stringify([]))
+  //   parsedToDos = []
+  // } else {
+  //   parsedToDos = JSON.parse(localStorageToDos)
+  // }
+
+
+
+
+
   const [toDos, setToDos] = useState(defaultToDos)
   const [searchValue, setSearchValue] = useState("")
 
+  
   const totalToDos = toDos.length
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length
 
@@ -45,6 +66,19 @@ function App() {
     setToDos(newToDos)
   }
 
+  const handleNewToDo = () => {
+    if(searchValue === "") return;
+    const newToDo = {
+      id: toDos.length +1,
+      text: searchValue,
+      completed: false
+    }    
+    setToDos(prev => [...prev, newToDo])
+    setSearchValue("")
+  }
+
+  // const saveToDos = () => {}
+
   return (
     <div className='app'>
       <ToDoCounter completed={completedToDos} total={totalToDos} />
@@ -70,7 +104,9 @@ function App() {
       </ToDoList>
 
 
-      <CreateToDoButton />
+      <CreateToDoButton
+        onChange={handleNewToDo}
+      />
     </div>
   )
 }
