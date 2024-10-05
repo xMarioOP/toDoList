@@ -6,39 +6,35 @@ import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
-const defaultToDos = [
-  { id: 1, text: "Cut onion", completed: false },
-  { id: 2, text: "Buy milk", completed: false },
-  { id: 3, text: "Go to the gym", completed: true },
-  { id: 4, text: "Take a bath", completed: false },
-  { id: 5, text: "Breakfast", completed: true },
-  { id: 6, text: "Visit family", completed: true },
-]
+// const defaultToDos = [
+//   { id: 1, text: "Cut onion", completed: false },
+//   { id: 2, text: "Buy milk", completed: false },
+//   { id: 3, text: "Go to the gym", completed: true },
+//   { id: 4, text: "Take a bath", completed: false },
+//   { id: 5, text: "Breakfast", completed: true },
+//   { id: 6, text: "Visit family", completed: true },
+// ]
 
 
 
-// localStorage.removeItem("TODLIST")
 
 function App() {
-  // const localStorageToDos = localStorage.getItem("TODLIST")
-
-  // let parsedToDos
-
-  // if (!localStorageToDos) {
-  //   localStorage.setItem("TODOLIST", JSON.stringify([]))
-  //   parsedToDos = []
-  // } else {
-  //   parsedToDos = JSON.parse(localStorageToDos)
-  // }
 
 
+  const saveToDos = (toDos) => {
+    localStorage.setItem('TODOLIST', JSON.stringify(toDos))
+  };
 
+  const loadToDos = () => {
+    const storedToDos = localStorage.getItem('TODOLIST')
+    return storedToDos ? JSON.parse(storedToDos) : []
+  };
 
-
-  const [toDos, setToDos] = useState(defaultToDos)
+  const [toDos, setToDos] = useState(loadToDos)
   const [searchValue, setSearchValue] = useState("")
 
-  
+
+
   const totalToDos = toDos.length
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length
 
@@ -67,17 +63,20 @@ function App() {
   }
 
   const handleNewToDo = () => {
-    if(searchValue === "") return;
+    if (searchValue === "") return;
     const newToDo = {
-      id: toDos.length +1,
+      id: new Date(),
       text: searchValue,
       completed: false
-    }    
+    }
     setToDos(prev => [...prev, newToDo])
     setSearchValue("")
   }
 
-  // const saveToDos = () => {}
+
+  useEffect(() => {
+    saveToDos(toDos)
+  }, [toDos])
 
   return (
     <div className='app'>
