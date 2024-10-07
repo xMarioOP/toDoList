@@ -4,10 +4,14 @@ import { ToDoSearch } from './components/ToDoSearch'
 import { ToDoList } from './components/ToDoList'
 import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
+import { EmptyToDo } from './components/EmptyToDo'
+import { ToDoError } from './components/ToDoError'
+import { ToDoLoading } from './components/ToDoLoading'
+
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
 // const defaultToDos = [
-//   { id: 1, text: "Cut onion", completed: false },
+//   { id: 1, text: "Cut onion", completed: false },  
 //   { id: 2, text: "Buy milk", completed: false },
 //   { id: 3, text: "Go to the gym", completed: true },
 //   { id: 4, text: "Take a bath", completed: false },
@@ -91,6 +95,10 @@ function App() {
 
 
       <ToDoList>
+        {/* {loading && <ToDoLoading />}
+        {error && <ToDoError />}
+        {(!loading && searchedToDo.length === 0) && <EmptyToDo />} */}
+
         {searchedToDo.map(toDo => (
           <ToDoItem
             key={toDo.id}
