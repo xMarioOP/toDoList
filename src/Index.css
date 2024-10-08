@@ -5,8 +5,8 @@
     --check-color: #01be01;
     --delete-color: #fe2e2e;
     --edit-color: #ffc107;
-    --bg-item-color:#fafafa;
-    --text-item-color:#1e1e1f;
+    --bg-item-color: #fafafa;
+    --text-item-color: #1e1e1f;
 }
 
 
@@ -131,7 +131,7 @@ select {
     align-items: center;
     width: 243px;
     height: 44px;
-    padding: 10px;
+    padding: 10px 5px;
     line-height: 21.94px;
     font-size: 3rem;
     border-radius: 2px;
@@ -143,6 +143,8 @@ select {
 
 .todoItem__text {
     pointer-events: none;
+    max-width: 69%;
+    overflow: hidden;
 }
 
 .todo-list__item span {
@@ -223,5 +225,5 @@ select {
     --text-color: #fafafa;
     --bg-color: #1E1E1F;
     --icon-color: #7c7c7c;
-    --bg-item-color:#fafafa;
-  }
+    --bg-item-color: #fafafa;
+}
