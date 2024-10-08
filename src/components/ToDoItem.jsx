@@ -1,19 +1,29 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faCircleXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 const ToDoItem = (props) => {
-    // console.log(props.onComplete);
 
     return (
         <li className="todo-list__item">
-            <span>
-                <FontAwesomeIcon
-                    icon={faCheck}
-                    aria-label="check icon"
-                    onClick={props.onComplete}
-                    className={`check__icon ${props.completed && "check__icon--active"}`}
-                />
-            </span>
+            <div className="iconContainer">
+                <span>
+                    <FontAwesomeIcon
+                        icon={faCheck}
+                        aria-label="check icon"
+                        onClick={props.onComplete}
+                        className={`check__icon ${props.completed && "check__icon--active"}`}
+                    />
+                </span>
+
+                <span>
+                    <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        aria-label="edit icon"
+                        onClick={props.onEdit}
+                        className='edit__icon'
+                    />
+                </span>
+            </div>
 
             <p
                 className={`todoItem__text ${props.completed && "todoItem__text--complete"}`}>
@@ -24,7 +34,7 @@ const ToDoItem = (props) => {
                 <FontAwesomeIcon
                     icon={faCircleXmark}
                     aria-label="delete icon"
-                    className={`delete__icon `}
+                    className="delete__icon"
                     onClick={props.onDelete}
                 // delete__icon--active
                 />

@@ -55,7 +55,7 @@ ol[role='list'] {
 body {
     min-height: 100vh;
     line-height: 1.5;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #FAFAFA;
     color: #1E1E1F;
     font-family: "Montserrat", sans-serif;
@@ -89,7 +89,7 @@ select {
     font-weight: normal;
 }
 
-.header__counter span{
+.header__counter span {
     font-size: 3rem;
     font-weight: bold;
 }
@@ -130,14 +130,19 @@ select {
     box-shadow: 0px 5px 50px 0px #20232926;
 }
 
-.todoItem__text{
-    pointer-events:none;
+.todoItem__text {
+    pointer-events: none;
 }
 
 .todo-list__item span {
     cursor: pointer;
-    font-size: 40px;
+    font-size: 35px;
     color: #7c7c7c;
+}
+
+.iconContainer {
+    display: flex;
+    gap: 5px;
 }
 
 
@@ -161,29 +166,33 @@ select {
 }
 
 /* //////////////////////////////////// */
-.check__icon:hover{
+.check__icon:hover {
     color: #01be01;
 }
 
-.delete__icon:hover{
+.delete__icon:hover {
     color: #fe2e2e;
+}
+
+.edit__icon:hover {
+    color: #ffc107;
 }
 
 /* //////////////////////////////////// */
-.check__icon--active{
+.check__icon--active {
     color: #01be01;
 }
 
-.delete__icon--active{
+.delete__icon--active {
     color: #fe2e2e;
 }
 
-.button__add:hover{
+.button__add:hover {
     box-shadow: 0px 5px 25px 0px #61DAFA80;
     transform: rotate(224deg);
 }
 
-.todoItem__text--complete{
+.todoItem__text--complete {
     text-decoration: line-through;
 }
 

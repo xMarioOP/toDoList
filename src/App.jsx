@@ -4,11 +4,9 @@ import { ToDoSearch } from './components/ToDoSearch'
 import { ToDoList } from './components/ToDoList'
 import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
-import { EmptyToDo } from './components/EmptyToDo'
-import { ToDoError } from './components/ToDoError'
-import { ToDoLoading } from './components/ToDoLoading'
 
-import { faL } from '@fortawesome/free-solid-svg-icons'
+
+// import { faL } from '@fortawesome/free-solid-svg-icons'
 
 // const defaultToDos = [
 //   { id: 1, text: "Cut onion", completed: false },  
@@ -36,6 +34,8 @@ function App() {
 
   const [toDos, setToDos] = useState(loadToDos)
   const [searchValue, setSearchValue] = useState("")
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
 
 
 
@@ -64,19 +64,42 @@ function App() {
   const handleDeleteToDo = (id) => {
     const newToDos = toDos.filter(toDo => toDo.id !== id)
     setToDos(newToDos)
+    if (editingId === id) {
+      setIsEditing(false)
+      setSearchValue("")
+    }
+  }
+
+  const handleEditToDo = (id) => {
+    const selectToDo = toDos.find(toDo => toDo.id === id);
+    if (selectToDo) {
+      setSearchValue(selectToDo.text);
+      setIsEditing(true)
+      setEditingId(id)
+    }
+
   }
 
   const handleNewToDo = () => {
     if (searchValue === "") return;
-    const newToDo = {
-      id: new Date(),
-      text: searchValue,
-      completed: false
+    if (isEditing) {
+      const updatedToDo = {
+        id: editingId,
+        text: searchValue,
+        completed: false
+      }
+      setToDos(prev => prev.map(toDo => toDo.id === editingId ? updatedToDo : toDo))
+      setIsEditing(false)
+    } else {
+      const newToDo = {
+        id: new Date(),
+        text: searchValue,
+        completed: false
+      }
+      setToDos(prev => [...prev, newToDo])
     }
-    setToDos(prev => [...prev, newToDo])
     setSearchValue("")
   }
-
 
   useEffect(() => {
     saveToDos(toDos)
@@ -95,10 +118,6 @@ function App() {
 
 
       <ToDoList>
-        {/* {loading && <ToDoLoading />}
-        {error && <ToDoError />}
-        {(!loading && searchedToDo.length === 0) && <EmptyToDo />} */}
-
         {searchedToDo.map(toDo => (
           <ToDoItem
             key={toDo.id}
@@ -106,6 +125,7 @@ function App() {
             completed={toDo.completed}
             onComplete={() => handleCompleteToDo(toDo.id)}
             onDelete={() => handleDeleteToDo(toDo.id)}
+            onEdit={() => handleEditToDo(toDo.id)}
           />
         ))}
       </ToDoList>
