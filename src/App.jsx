@@ -5,6 +5,8 @@ import { ToDoList } from './components/ToDoList'
 import { ToDoItem } from './components/ToDoItem'
 import { CreateToDoButton } from './components/CreateToDoButton'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 // import { faL } from '@fortawesome/free-solid-svg-icons'
 
@@ -22,6 +24,9 @@ import { CreateToDoButton } from './components/CreateToDoButton'
 
 function App() {
 
+  const storedDarkMode = JSON.parse(localStorage.getItem("darkmode"));
+  console.log(localStorage);
+
 
   const saveToDos = (toDos) => {
     localStorage.setItem('TODOLIST', JSON.stringify(toDos))
@@ -36,8 +41,20 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(storedDarkMode || false)
+
+  const saveDarkMode = (mode) => {
+    localStorage.setItem("darkmode", JSON.stringify(mode));
+  };
 
 
+  const handleDarkMode = () => {
+    setIsDarkMode(prev => {
+      const newMode = !prev
+      saveDarkMode(newMode)
+      return newMode
+    })
+  }
 
   const totalToDos = toDos.length
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length
@@ -46,7 +63,7 @@ function App() {
   const handleChange = (e) => {
     const { value } = e.target
     setSearchValue(value)
-    console.log(value);
+    console.log(value)
   }
 
 
@@ -105,8 +122,16 @@ function App() {
     saveToDos(toDos)
   }, [toDos])
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className='app'>
+    <div className={`app ${isDarkMode ? 'dark-mode' : ''}`}>
       <ToDoCounter completed={completedToDos} total={totalToDos} />
 
 
@@ -134,8 +159,15 @@ function App() {
       <CreateToDoButton
         onChange={handleNewToDo}
       />
+
+
+      <FontAwesomeIcon
+        icon={faMoon}
+        className='darkMode__Icon'
+        onClick={handleDarkMode}
+      />
     </div>
   )
 }
 
-export default App
+export { App }
