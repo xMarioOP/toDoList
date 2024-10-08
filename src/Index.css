@@ -210,7 +210,7 @@ select {
 /* //////////////////////////////////// */
 
 .darkMode__Icon {
-    position: absolute;
+    position: fixed;
     font-size: 40px;
     right: 15px;
     bottom: 15px;
