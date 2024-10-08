@@ -20,8 +20,6 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 // ]
 
 
-
-
 function App() {
 
   const storedDarkMode = JSON.parse(localStorage.getItem("darkmode"));
