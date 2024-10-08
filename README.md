@@ -1,24 +1,32 @@
-# To-Do List App
+# 📝 To-Do List App
+
+[**🌐 View the live project here**](https://xMarioOP.github.io/toDoList/)
 
 This is a simple To-Do List application built with React and Vite. The app allows users to manage their tasks efficiently with features such as adding, editing, and deleting tasks.
 
-## Features
+---
 
-- Add new tasks
-- Edit existing tasks
-- Delete tasks
-- Dark mode toggle
-- Task search functionality
-- Responsive design
+## 🚀 Features
 
-## Technologies Used
+- **Add new tasks** ✅
+- **Edit existing tasks** ✏️
+- **Delete tasks** 🗑️
+- **Toggle Dark Mode** 🌙
+- **Search for tasks** 🔍
+- **Responsive design** 📱
 
-- React
-- Vite
-- CSS
-- FontAwesome for icons
+---
 
-## Getting Started
+## 🛠️ Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A fast build tool for modern web projects.
+- **CSS**: For styling the application.
+- **FontAwesome**: For beautiful icons.
+
+---
+
+## 📥 Getting Started
 
 To run this project locally, follow these steps:
 
@@ -40,19 +48,27 @@ To run this project locally, follow these steps:
 
 5. Open your browser and go to http://localhost:3000
 
+---
+
 ## Deployment
 
 This project is deployed on GitHub Pages. You can access it [here](https://xMarioOP.github.io/toDoList/).
 
-## Acknowledgements
+---
+
+## 🙏 Acknowledgements
 
 This project is part of the React course on Platzi. Special thanks to Platzi for the amazing content and resources.
 
-## License
+---
+
+## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Customization
+---
+
+## ✏️ Customization
 
 - Replace `your_username` and `your_repository_name` with your actual GitHub username and the name of your repository.
 - Feel free to adjust any sections or details to better match your project's specifics or your personal style!
