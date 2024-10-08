@@ -50,12 +50,6 @@ To run this project locally, follow these steps:
 
 ---
 
-## Deployment
-
-This project is deployed on GitHub Pages. You can access it [here](https://xMarioOP.github.io/toDoList/).
-
----
-
 ## 🙏 Acknowledgements
 
 This project is part of the React course on Platzi. Special thanks to Platzi for the amazing content and resources.
